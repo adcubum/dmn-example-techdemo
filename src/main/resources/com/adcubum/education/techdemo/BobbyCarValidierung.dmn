@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_750E991A-E07C-476F-85BD-20E8D75DE9CB" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_AC74242C-ECC6-4360-9A81-373FB8F7DF50" name="BobbyCarValidierung" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_750E991A-E07C-476F-85BD-20E8D75DE9CB">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_5081B587-ACC1-4335-9AD2-6A83A8D6E390" name="Insert a name" isCollection="false">
+    <dmn:typeRef>Any</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_EE0E48DF-5445-4DAF-A1C4-7D1D7630C621" name="BobbyCar" isCollection="false">
+    <dmn:itemComponent id="_E08F244B-AAAC-4990-A643-010EA868FFD1" name="make" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1A0DF3A3-B297-4414-B9F5-61480A18728D" name="id" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9D5358DD-2D61-40DE-98AD-AB27186ABD12" name="maxWeight" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1BEA0EBC-6A7A-4305-AE85-7BB40D842E06" name="model" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E9C148C5-616E-4D2E-A24E-A7CDA2FC807B" name="accessories" isCollection="true">
+      <dmn:typeRef>BobbyCarAccessory</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CC1A015A-178F-44E2-8F91-3ABFF48653A5" name="minAge" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_23412568-5431-4133-AD64-4E5CBE3CECFC" name="price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C6E89407-0CA1-41EF-B577-86CC07A7A140" name="color" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_36D13EC4-5502-4D78-B178-E66876A198D8" name="BobbyCarAccessory" isCollection="false">
+    <dmn:itemComponent id="_5D897707-0B42-491B-94C5-E3A97EF0448C" name="type" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BE0E7E08-7EEE-430F-BD5D-E37FFE29E366" name="id" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DDD135A1-1F81-4634-A204-E28E23B13F49" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_610A90EF-8765-4BD1-B782-C33A2C28F58D" name="price" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:decision id="_5AC6BF9F-223C-448F-BB18-905AF7621D0F" name="Valide">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BADF927B-690A-420D-AE7C-3BB77E0EB090" name="Valide" typeRef="boolean"/>
+    <dmn:informationRequirement id="_6BEC4275-934A-4A6C-9843-946223C46792#_4A009B8C-45C3-44AD-B25D-AF7D26B46E51">
+      <dmn:requiredInput href="#_4025DC92-B65C-43DB-BFDB-4F514341A1DB"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_DE968779-77AB-414F-A978-5D41CB43585D" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_2CCA1371-3723-4406-99EB-BEBEE33FC7CF">
+        <dmn:inputExpression id="_E241F7EB-2C42-4E06-A8D7-9989501E8FB1" typeRef="string">
+          <dmn:text>lower case(BobbyCar.make)</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_02962487-279B-45F3-B917-E45D48BE0AF1">
+        <dmn:inputExpression id="_C01481A2-A3D9-4F1E-8E04-70CDACCD52AC" typeRef="string">
+          <dmn:text>lower case(BobbyCar.model)</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_B0325BF7-45DC-488A-BDBF-C3D7F11008E1">
+        <dmn:inputExpression id="_FB6CE212-01C8-4D41-A7B8-B6A3F9E1CFC0" typeRef="string">
+          <dmn:text>lower case(BobbyCar.color)</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_F0F8CAF2-FC11-459D-95BE-757D18B35759">
+        <dmn:inputExpression id="_03D075B6-2340-449D-BBC8-215DB3DC2ABA" typeRef="number">
+          <dmn:text>BobbyCar.price</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_42655BCD-46BC-46B2-8CAD-700D2926A3C3">
+        <dmn:inputExpression id="_3A39FB4C-C466-4344-8B90-10984D70817B" typeRef="BobbyCarAccessory">
+          <dmn:text>count(BobbyCar.accessories)</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_16D6D3E6-6C79-48F1-AA74-C29A0880C738">
+        <dmn:inputExpression id="_04FFF929-8597-4EEB-9C43-A1D6DCA57A5C" typeRef="number">
+          <dmn:text>BobbyCar.maxWeight</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_8D8A074E-F10A-49E5-BFA4-FE9E2BA0441A">
+        <dmn:inputExpression id="_4676BB48-34DA-4CB8-B477-D574CDF9EFAF" typeRef="number">
+          <dmn:text>BobbyCar.minAge</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_4185167E-741D-4833-8F5F-023C753F385A"/>
+      <dmn:annotation name="Bemerkungen"/>
+      <dmn:rule id="_CBBF68EC-1D30-4B73-BB85-000B79FBB50A">
+        <dmn:inputEntry id="_04CA73A9-6A9D-4D8D-AB05-12B90E2F29A7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3F08C996-36C1-4DF4-B0B7-1EBDA5F2BAFF">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_001794A4-8C86-4F19-8980-11D707B14D1A">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_DC8309A5-F7B4-4ED5-A6A7-82F7955C52AC">
+          <dmn:text>&lt;100</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_18A1F9E3-20E8-4BD9-8578-6B5248F718F1">
+          <dmn:text>&lt;=1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8DCCBD0B-53B1-48E9-A04F-C3EF990546D1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_02FA35A8-882B-466C-8FA9-F3A1DE9E4B7F">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_86300069-72C1-45A9-85A9-BA30B6374CE4">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CFC4E0B7-D37B-411B-AD1D-0C9B51050613">
+        <dmn:inputEntry id="_8A3F8443-950D-4E5C-94A8-20B673B5BADF">
+          <dmn:text>"bentley"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6448D77A-406F-450C-A32E-11A821B4181E">
+          <dmn:text>"heritage"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BD071226-5616-4C56-966C-A2648E6AF492">
+          <dmn:text>"red", "rot", "rouge", "rosso"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_758D2165-D363-4281-9467-7DB1E44F3F91">
+          <dmn:text>[100 .. 1000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_978E6A12-D8B6-48B9-AC98-081163C607AE">
+          <dmn:text>[1 .. 3]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5983AEF4-0EBC-42B0-AE55-5C7597CB5346">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_EEEEF1E3-C020-44BC-B103-2260B26C72A6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_BD6A0925-5CE2-4135-B2CC-EC381D215E34">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_C63874CA-84BD-4615-B842-FD19723A773E">
+        <dmn:inputEntry id="_F283DBF8-96EE-4D7A-A631-3B3C806E8EE3">
+          <dmn:text>"bentley"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7CC1D2BC-00FD-4BAC-9CBC-E47864BC3C16">
+          <dmn:text>"classic"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_72CAFBCF-9EAC-4FF3-A4B1-9365F035F7DF">
+          <dmn:text>"red", "rot", "rouge", "rosso"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_47CD0DE3-D7B6-49CC-B218-19A7BDC54D1C">
+          <dmn:text>&lt;=500</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_43248A54-3306-40A1-8F48-764472C524FA">
+          <dmn:text>&lt;=2</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_FFAB710B-D2C3-455E-AA80-4CC7EC9B35D6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_55AB634E-8145-4EEB-B29B-B3949FAE770B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_F627C3BD-50E2-490F-B289-3592DAE209B6">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_272362C3-452F-47DA-A736-B434C1A8E5CF">
+        <dmn:inputEntry id="_79ECEB3D-65D4-4141-A876-B536A754B771">
+          <dmn:text>"bugatti"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_70A21FF3-EDB8-4287-B7FA-D68890420ECF">
+          <dmn:text>"sport"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_72C5BE04-F463-435A-9481-21B09CB1CC34">
+          <dmn:text>"blue", "blau", "blu"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_86E5DFC7-1082-4970-962C-111226ED5025">
+          <dmn:text>[200 .. 2000]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A1AC949A-7582-4C79-A482-79CD95DD482B">
+          <dmn:text>&lt;=4</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_50A8EC8D-5161-48B3-8EF4-A781A759A364">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_511F45C8-141F-4279-A9F3-5E2A47295E22">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_A40268F8-8E90-4402-A945-7DE796BCF8F0">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_21F873B3-B33A-45E9-8886-4DC7FD84EE96">
+        <dmn:inputEntry id="_75AC0C67-AAFA-4DDD-AFD2-237408EBE256">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_23AA752E-E109-47D8-BA61-FE7B9867AD95">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_FD79A09D-958B-4E76-A4A3-590DB46F92C2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A79CFF55-760C-4508-A094-EC64F4A134A9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_22EAC5CC-F987-47DE-871E-DB65F4521474">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2E6FFAFB-47E9-44EA-8A76-9DDEE4608A20">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2BA6CE22-3896-446F-A274-5494F7C1D031">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4B8B6285-9DB1-44B0-8021-796E65F1BA42">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_4025DC92-B65C-43DB-BFDB-4F514341A1DB" name="BobbyCar">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6E09926A-F90E-4ED5-8D30-883C884AC1E9" name="BobbyCar" typeRef="BobbyCar"/>
+  </dmn:inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_DE968779-77AB-414F-A978-5D41CB43585D">
+            <kie:width>50.0</kie:width>
+            <kie:width>233.0</kie:width>
+            <kie:width>196.0</kie:width>
+            <kie:width>293.0</kie:width>
+            <kie:width>125.0</kie:width>
+            <kie:width>316.0</kie:width>
+            <kie:width>164.0</kie:width>
+            <kie:width>146.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>166.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_5AC6BF9F-223C-448F-BB18-905AF7621D0F" dmnElementRef="_5AC6BF9F-223C-448F-BB18-905AF7621D0F" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="687" y="416" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_4025DC92-B65C-43DB-BFDB-4F514341A1DB" dmnElementRef="_4025DC92-B65C-43DB-BFDB-4F514341A1DB" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="687" y="274" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_6BEC4275-934A-4A6C-9843-946223C46792#_4A009B8C-45C3-44AD-B25D-AF7D26B46E51" dmnElementRef="_6BEC4275-934A-4A6C-9843-946223C46792#_4A009B8C-45C3-44AD-B25D-AF7D26B46E51">
+        <di:waypoint x="737" y="299"/>
+        <di:waypoint x="737" y="416"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
